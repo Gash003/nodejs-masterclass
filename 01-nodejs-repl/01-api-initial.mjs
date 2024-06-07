@@ -11,9 +11,29 @@ function netSalary({ discount, salary }) {
     return result
 }
 
+function parseData(data) {
+    if (isNaN(data.discount) || isNaN(data.salary))
+        return null
+
+    return {
+        discount: Number(data.discount),
+        salary: Number(data.salary),
+    }
+}
+
+
 http.createServer((req, res) => {
     const { query } = parse(req.url, true)
+    const data = parseData(query)
+    if (!data) {
+        res.writeHead(400)
+        return res.end('error, discount and salary are required')
+    }
+
+
     const result = netSalary(query)
+    
+    
     debugger
     res.end(`Your monthly salary is: ${result}`)
 })
