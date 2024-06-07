@@ -1,0 +1,14 @@
+help - List commands
+list(100) - List the first 100 lines
+scripts - Show all loaded scripts
+setBreakpoint(13) / sb(13) - Set a breakpoint
+clearBreakpoint(13) / cb(13) - Clear a breakpoint
+cont / c - Resume program
+r - Restart program
+exec req.url / p req.url - Evaluate an expression
+next / n - Move to the next line
+watch('url') - Watch a variable
+unwatch('url') - Unwatch a variable
+.help - Additional help
+.editor - Multi-line code mode
+.save history.txt - Save history to a file

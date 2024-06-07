@@ -1,0 +1,39 @@
+
+4. REPL debugging challenge
+Challenge: Implement Function to Validate Request
+In this section, you will implement a function to validate the request object using REPL.
+
+Example Request Object
+{
+    "discount": number,
+    "salary": number
+}
+Note: You must use REPL to debug and implement your own solution.
+
+Create and Test Your Code
+Create a file named 01-api-repl.mjs containing the following code:
+
+// 01-api-repl.mjs
+// curl -i "localhost:9999?salary=2000&discount=15"
+
+import http from 'node:http';
+import { parse } from 'node:url';
+
+function netSalary({ discount, salary }) {
+    const percent = (discount / 100);
+    const cost = salary * percent;
+    const result = salary - cost;
+
+    return result;
+}
+
+http.createServer((req, res) => {
+    const { query } = parse(req.url, true);
+    const result = netSalary(query);
+    debugger;
+    res.end(`Your monthly salary is: ${result}`);
+})
+.listen(9999, () => console.log('app running at 9999'));
+After running it, to test your code, use the following curl command:
+
+curl -i "localhost:9999?salary=2000&discount=15"
