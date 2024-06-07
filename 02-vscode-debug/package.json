@@ -1,0 +1,16 @@
+{
+  "name": "02-vscode-debug",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+		"test:debug": "node --inspect --watch api.js"
+	},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "engines": {
+    "node": "v20.12.2"
+  }
+}
